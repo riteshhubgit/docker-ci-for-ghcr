@@ -18,4 +18,13 @@ app.get('/users', (req, res) => {
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
+process.on('SIGTERM', () => {
+  console.log('Received SIGTERM, shutting down...');
+  process.exit(0);
+});
+
+process.on('SIGINT', () => {
+  console.log('Received SIGINT, shutting down...');
+  process.exit(0);
+});
 
